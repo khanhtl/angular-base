@@ -3,6 +3,7 @@
     <img width="200" height="150" [src]="product.image"/>
     <div>{{ product.title }}</div>
     <h3>{{ product.price }}</h3>
+    <a [routerLink]="'/products/' + product.id">Detail</a>
   </div>
 </ng-container>
 <ng-template #loading>
