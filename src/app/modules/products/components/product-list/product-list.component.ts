@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ProductsFacade } from './../../product.facade';
 import { RouterLink } from '@angular/router';
 
@@ -12,6 +12,6 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductListComponent {
   private readonly productsFacade=inject(ProductsFacade);
-
-  products$=this.productsFacade.loadProducts();
+  
+  products$= this.productsFacade.getProducts();
 }

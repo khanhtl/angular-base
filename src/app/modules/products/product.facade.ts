@@ -16,7 +16,10 @@ export class ProductsFacade {
         tap((products: ProductEntity[]) => {
           this.productsState.setProducts(products);
         })
-      );
+    );
+  }
+  getProducts() {
+    return this.productsState.getProducts();
   }
   /**
    * Lấy sản phẩm theo id
@@ -25,5 +28,4 @@ export class ProductsFacade {
   getProductById(id: number) {
     return this.productsService.getById(id);
   }
-
 }

@@ -6,10 +6,12 @@ const routes: Routes=[
   {
     path: '',
     component: LayoutComponent,
-  },
-  {
-    path: 'products',
-    loadChildren: () => import('../modules/products/products.module').then(m => m.ProductsModule)
+    children: [
+      {
+        path: 'products',
+        loadChildren: () => import('../modules/products/products.module').then(m => m.ProductsModule)
+      }
+    ]
   }
 ];
 

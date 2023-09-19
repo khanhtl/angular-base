@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductResolver } from './resolvers/product.resolver';
 
 const routes: Routes=[
   {
     path: '',
     loadComponent:() => import('./components/product-list/product-list.component').then(m => m.ProductListComponent),
+    resolve: {
+      product: ProductResolver
+    }
   },
   {
     path: ':id',
