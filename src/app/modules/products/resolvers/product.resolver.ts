@@ -1,22 +1,15 @@
-import { Injectable, inject } from "@angular/core";
+import { inject } from "@angular/core";
 import {
-  Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot,
+  ResolveFn,
 } from "@angular/router";
 import { Observable } from "rxjs";
 import { ProductEntity } from "../entities/product.entity";
 import { ProductsFacade } from "../product.facade";
 
-
-@Injectable()
-export class ProductResolver implements Resolve<ProductEntity[]> {
-    private readonly productsFacade=inject(ProductsFacade);
-
-  resolve(
+export const ProductResolver: ResolveFn<ProductEntity[]> = (
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<ProductEntity[]> {
-    return this.productsFacade.loadProducts();
-  }
-}
+    state: RouterStateSnapshot,
+    productsFacade: ProductsFacade = inject(ProductsFacade)
+  ): Observable<ProductEntity[]> => productsFacade.loadProducts();

@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsService } from './service/products.service';
-import { ProductResolver } from './resolvers/product.resolver';
 
 @NgModule({
   imports: [
@@ -14,6 +13,6 @@ import { ProductResolver } from './resolvers/product.resolver';
     ProductsRoutingModule,
 
   ],
-  providers: [ProductsFacade,ProductsService, ProductsState, ProductResolver]
+  providers: [ProductsFacade,ProductsService, ProductsState]
 })
 export class ProductsModule { }
