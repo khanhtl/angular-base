@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.json');
@@ -28,7 +29,8 @@ export function createTranslateLoader(http: HttpClient) {
           deps: [HttpClient]
       },
       defaultLanguage: 'vi'
-  })
+  }),
+    BrowserAnimationsModule
   ],
   providers: [
     {

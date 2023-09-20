@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductResolver } from './resolvers/product.resolver';
+import { ProductDetailResolver } from './resolvers/product-detail.resolver';
 
 const routes: Routes=[
   {
@@ -13,6 +14,9 @@ const routes: Routes=[
   {
     path: ':id',
     loadComponent:() => import('./components/product-detail/product-detail.component').then(m => m.ProductDetailComponent),
+    resolve: {
+      product: ProductDetailResolver
+    }
   }
 ];
 

@@ -1,2 +1,12 @@
-<a routerLink="/products">Product</a>
-<a routerLink="/">Home</a>
+<header>
+    <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Angular stack</span>
+        <span class="example-spacer"></span>
+        <a mat-button routerLink="/" >Home</a>
+        <a mat-button routerLink="/products" >Product</a>
+        <a mat-button routerLink="/login" >Login</a>
+    </mat-toolbar>
+</header>

@@ -18,6 +18,14 @@ export class ProductsFacade {
         })
     );
   }
+  loadProduct(id: number | string) {
+    return this.productsService.getById(id)
+      .pipe(
+        tap((product: ProductEntity) => {
+          this.productsState.setProduct(product);
+        })
+    );
+  }
   getProducts() {
     return this.productsState.getProducts();
   }
@@ -25,7 +33,7 @@ export class ProductsFacade {
    * Lấy sản phẩm theo id
    * @param id
    */
-  getProductById(id: number) {
-    return this.productsService.getById(id);
+  getCurrentProduct() {
+    return this.productsState.getProduct();
   }
 }
