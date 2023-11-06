@@ -9,6 +9,9 @@ const routes: Routes=[
     loadComponent:() => import('./components/product-list/product-list.component').then(m => m.ProductListComponent),
     resolve: {
       product: ProductResolver
+    },
+    data: {
+      preload: true
     }
   },
   {

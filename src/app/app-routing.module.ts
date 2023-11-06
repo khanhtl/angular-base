@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadingStrategy, RouterModule, Routes, withPreloading } from '@angular/router';
+import { FlagBasedPreloadingStrategy } from './shared/utils/flag-based-preloading-strategy';
 
 const routes: Routes=[
   {
@@ -9,7 +10,13 @@ const routes: Routes=[
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: withPreloading(FlagBasedPreloadingStrategy)
+  })],
+  providers: [{
+    provide: PreloadingStrategy,
+    useClass: FlagBasedPreloadingStrategy
+  }],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
