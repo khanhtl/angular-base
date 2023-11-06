@@ -6,7 +6,7 @@ import { ProductsComponent } from './containers/products/products.component';
 const routes: Routes=[
   {
     path: '',
-    component: ProductsComponent,
+    loadComponent:() => import('./containers/products/products.component').then(m => m.ProductsComponent),
     data: {
       preload: true
     }
