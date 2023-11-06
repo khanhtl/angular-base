@@ -1,13 +1,6 @@
-<ng-container *ngIf="product$ | async as product; else loading">
-  <div style="margin: 12px; display: inline-block;" >
-    <img width="200" height="150" [src]="product.image"/>
-    <div>{{ product.title }}</div>
-    <div>{{ product.description }}</div>
-    <h3>{{ product.price }}</h3>
-  </div>
-</ng-container>
-<ng-template #loading>
-<div>
-  loading...
+<div style="margin: 12px; display: inline-block;">
+  <img width="200" height="150" [src]="product.image" />
+  <div>{{ product.title }}</div>
+  <div>{{ product.description }}</div>
+  <h3>{{ product.price }}</h3>
 </div>
-</ng-template>

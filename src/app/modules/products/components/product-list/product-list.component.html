@@ -1,13 +1,7 @@
-<ng-container *ngIf="products$ | async as products; else loading">
-  <div style="margin: 12px; display: inline-block;" *ngFor="let product of products">
-    <img width="200" height="150" [src]="product.image"/>
-    <div>{{ product.title }}</div>
-    <h3>{{ product.price }}</h3>
-    <a [routerLink]="'/products/' + product.id">Detail</a>
-  </div>
-</ng-container>
-<ng-template #loading>
-<div>
-  loading...
+<div style="margin: 12px; display: inline-block;" *ngFor="let product of products">
+  <img width="200" height="150" [src]="product.image"/>
+  <div>{{ product.title }}</div>
+  <h3>{{ product.price }}</h3>
+  <a [routerLink]="'/products/' + product.id">Detail</a>
 </div>
-</ng-template>
+

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
-import { ProductsFacade } from './../../product.facade';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ProductEntity } from '../../entities/product.entity';
 
 @Component({
   selector: 'app-product-list',
@@ -11,7 +11,5 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent {
-  private readonly productsFacade=inject(ProductsFacade);
-  
-  products$= this.productsFacade.getProducts();
+  @Input() products: ProductEntity[] = [];
 }

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { ProductsFacade } from './../../product.facade';
+import { Component, Input } from '@angular/core';
+import { ProductEntity } from '../../entities/product.entity';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,6 +10,5 @@ import { ProductsFacade } from './../../product.facade';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent {
-  private readonly productsFacade=inject(ProductsFacade);
-  product$=this.productsFacade.getCurrentProduct();
+  @Input() product: ProductEntity = {};
 }

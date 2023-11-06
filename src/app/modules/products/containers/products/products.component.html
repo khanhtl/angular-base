@@ -1,1 +1,9 @@
-<p>products works!</p>
+<ng-container *ngIf="products$ | async as products; else loading">
+    <app-product-list [products]="products"></app-product-list>
+</ng-container>
+
+<ng-template #loading>
+    <div>
+        loading...
+    </div>
+</ng-template>

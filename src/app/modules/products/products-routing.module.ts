@@ -1,25 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductResolver } from './resolvers/product.resolver';
 import { ProductDetailResolver } from './resolvers/product-detail.resolver';
+import { ProductsComponent } from './containers/products/products.component';
 
 const routes: Routes=[
   {
     path: '',
-    loadComponent:() => import('./components/product-list/product-list.component').then(m => m.ProductListComponent),
-    resolve: {
-      product: ProductResolver
-    },
+    component: ProductsComponent,
     data: {
       preload: true
     }
   },
   {
     path: ':id',
-    loadComponent:() => import('./components/product-detail/product-detail.component').then(m => m.ProductDetailComponent),
-    resolve: {
-      product: ProductDetailResolver
-    }
+    loadComponent:() => import('./containers/product/product.component').then(m => m.ProductComponent),
   }
 ];
 
