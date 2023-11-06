@@ -9,6 +9,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgProgressModule } from 'ngx-progressbar';
+import { NgProgressHttpModule } from 'ngx-progressbar/http';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locales/', '.json');
@@ -30,7 +32,12 @@ export function createTranslateLoader(http: HttpClient) {
       },
       defaultLanguage: 'vi'
   }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgProgressModule.withConfig({
+      color: '#f00',
+      spinner: false
+    }),
+    NgProgressHttpModule
   ],
   providers: [
     {
